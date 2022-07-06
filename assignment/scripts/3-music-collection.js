@@ -21,6 +21,17 @@ function showCollection(group){
 
 } // end of function
 
+function findByArtist(artist, group) {
+    let artistResults = [];
+    for(let i=0; i<group.length; i++){
+        if( artist === group[i].artist){
+            console.log('win');
+            artistResults.push(group[i]);
+        } // end of conditional
+    } //end of for loop
+    console.log(artistResults);
+    return artistResults;
+} //end of function
 
 console.log('adding this to collection:', addToCollection('Is this it', 'The Strokes', '2001'));
 console.log('adding this to collection:', addToCollection('Room on fire', 'The Strokes', '2003'));
@@ -30,7 +41,9 @@ console.log('adding this to collection:', addToCollection('Stripped', 'Christina
 console.log('adding this to collection:', addToCollection('Careless Love', 'Madeleine Peyroux', '2004'));
 
 showCollection(collection);
-
+findByArtist('Guster', collection);
+findByArtist('The Strokes', collection);
+findByArtist('Moby', collection);
 /**************
  * ### Required Features
 
@@ -47,12 +60,12 @@ __________Test the `addToCollection` function:
   - Console.log each album as added using the returned value.
   - After all are added, console.log the `collection` array.
 
-- Add a function named `showCollection`. This function should:
+_____________Add a function named `showCollection`. This function should:
   - Take in an array parameter. (This allows it to be reused to show any collection, like the results from the find or search.)
   - Console.log the number of items in the array.
   - Loop over the array and console.log each album's information formatted like: `TITLE by ARTIST, published in YEAR`.
 
-- Test the `showCollection` function.
+______________Test the `showCollection` function.
 
 - Add a function named `findByArtist`. This function should:
   - Take in `artist` (a string) parameter
