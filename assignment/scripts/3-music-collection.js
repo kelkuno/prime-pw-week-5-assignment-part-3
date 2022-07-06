@@ -13,18 +13,24 @@ function addToCollection (title, artist, yearPublished) {
     return newAlbum;
 } // end of function
 
-addToCollection('Is this it', 'The Strokes', '2001');
+function showCollection(group){
+    console.log(group.length);
+    for (let i = 0; i < group.length; i++){
+        console.log(group[i].title + ' by ' + group[i].artist + ', published in ' + group[i].yearPublished);
+    } // end of for loop
+
+} // end of function
+
+
 console.log('adding this to collection:', addToCollection('Is this it', 'The Strokes', '2001'));
-addToCollection('Room on fire', 'The Strokes', '2003');
 console.log('adding this to collection:', addToCollection('Room on fire', 'The Strokes', '2003'));
-addToCollection('Keep it togegther', 'Guster', '2003');
 console.log('adding this to collection:', addToCollection('Keep it togegther', 'Guster', '2003'));
-addToCollection('Hollywood Africans', 'Jon Batiste', '2018');
 console.log('adding this to collection:', addToCollection('Hollywood Africans', 'Jon Batiste', '2018'));
-addToCollection('Stripped', 'Christina Aguilera', '2002');
 console.log('adding this to collection:', addToCollection('Stripped', 'Christina Aguilera', '2002'));
-addToCollection('Careless Love', 'Madeleine Peyroux', '2004');
 console.log('adding this to collection:', addToCollection('Careless Love', 'Madeleine Peyroux', '2004'));
+
+showCollection(collection);
+
 /**************
  * ### Required Features
 
