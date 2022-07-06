@@ -13,24 +13,30 @@ function addToCollection (title, artist, yearPublished) {
     return newAlbum;
 } // end of function
 
-addToCollection('hit me baby one more time', 'britney spears', '1998');
-console.log('testing the addToCollection function', collection);
-addToCollection('Opps I did it again', 'britney spears', '1999');
-console.log('testing the addToCollection function', collection);
-
-
+addToCollection('Is this it', 'The Strokes', '2001');
+console.log('adding this to collection:', addToCollection('Is this it', 'The Strokes', '2001'));
+addToCollection('Room on fire', 'The Strokes', '2003');
+console.log('adding this to collection:', addToCollection('Room on fire', 'The Strokes', '2003'));
+addToCollection('Keep it togegther', 'Guster', '2003');
+console.log('adding this to collection:', addToCollection('Keep it togegther', 'Guster', '2003'));
+addToCollection('Hollywood Africans', 'Jon Batiste', '2018');
+console.log('adding this to collection:', addToCollection('Hollywood Africans', 'Jon Batiste', '2018'));
+addToCollection('Stripped', 'Christina Aguilera', '2002');
+console.log('adding this to collection:', addToCollection('Stripped', 'Christina Aguilera', '2002'));
+addToCollection('Careless Love', 'Madeleine Peyroux', '2004');
+console.log('adding this to collection:', addToCollection('Careless Love', 'Madeleine Peyroux', '2004'));
 /**************
  * ### Required Features
 
 ________Create a variable `collection` that starts as an empty array.
 
-- Add a function named `addToCollection`. This function should:
+_________Add a function named `addToCollection`. This function should:
   - Take in the album's `title`, `artist`, `yearPublished` as input parameters
   - Create a new object having the above properties
   - Add the new object to the end of the `collection` array
   - Return the newly created object
 
-- Test the `addToCollection` function:
+__________Test the `addToCollection` function:
   - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
   - Console.log each album as added using the returned value.
   - After all are added, console.log the `collection` array.
