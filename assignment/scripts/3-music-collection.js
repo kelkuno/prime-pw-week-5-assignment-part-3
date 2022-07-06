@@ -1,12 +1,28 @@
 console.log('***** Music Collection *****')
 let collection = [];
 
+function addToCollection (title, artist, yearPublished) {
+    
+    let newAlbum = { };
+
+    newAlbum.title = title;
+    newAlbum.artist = artist;
+    newAlbum.yearPublished = yearPublished;
+   
+    collection.push(newAlbum);
+    return newAlbum;
+} // end of function
+
+addToCollection('hit me baby one more time', 'britney spears', '1998');
+console.log('testing the addToCollection function', collection);
+addToCollection('Opps I did it again', 'britney spears', '1999');
+console.log('testing the addToCollection function', collection);
 
 
 /**************
  * ### Required Features
 
-- Create a variable `collection` that starts as an empty array.
+________Create a variable `collection` that starts as an empty array.
 
 - Add a function named `addToCollection`. This function should:
   - Take in the album's `title`, `artist`, `yearPublished` as input parameters
