@@ -33,50 +33,48 @@ function findByArtist(artist, group) {
     return artistResults;
 } //end of function
 
-console.log('adding this to collection:', addToCollection('Is this it', 'The Strokes', '2001'));
-console.log('adding this to collection:', addToCollection('Room on fire', 'The Strokes', '2003'));
-console.log('adding this to collection:', addToCollection('Keep it togegther', 'Guster', '2003'));
-console.log('adding this to collection:', addToCollection('Hollywood Africans', 'Jon Batiste', '2018'));
-console.log('adding this to collection:', addToCollection('Stripped', 'Christina Aguilera', '2002'));
-console.log('adding this to collection:', addToCollection('Careless Love', 'Madeleine Peyroux', '2004'));
+function searchFeature (artist, yearPublished, group){
+    let newCollection = [];
 
+    if (artist === undefined && yearPublished === undefined && group === undefined){
+        console.log('do not forget to add search object input');
+        return collection;
+    } // end of conditional
+
+    for(let i=0; i < group.length; i++){
+        if(artist === group[i].artist || yearPublished === group[i].yearPublished){
+            newCollection.push(group[i]);
+            console.log ('it is a match');
+            return newCollection;
+        } else if(artist != group[i].artist || year != group[i].yearPublished) {
+            console.log ('it is not a match');
+            return newCollection;
+        } // end of conditional
+    } // end of loop
+} // end of function
+
+//added a few albums to collection:
+console.log('adding this to collection:', addToCollection('Is this it', 'The Strokes', 2001));
+console.log('adding this to collection:', addToCollection('Room on fire', 'The Strokes', 2003));
+console.log('adding this to collection:', addToCollection('Keep it togegther', 'Guster', 2003));
+console.log('adding this to collection:', addToCollection('Hollywood Africans', 'Jon Batiste', 2018));
+console.log('adding this to collection:', addToCollection('Stripped', 'Christina Aguilera', 2002));
+console.log('adding this to collection:', addToCollection('Careless Love', 'Madeleine Peyroux', 2004));
+
+//output all albums in collection
 showCollection(collection);
+
+//Checks to see if the input artist is in the album collection and returns results
 findByArtist('Guster', collection);
 findByArtist('The Strokes', collection);
 findByArtist('Moby', collection);
+
+console.log('--search feature tests!--');
+
+//searchFeature ('Ray Charles', 1957, collection);
+searchFeature('Jon Batiste', 2018, collection);
+//searchFeature();
 /**************
- * ### Required Features
-
-________Create a variable `collection` that starts as an empty array.
-
-_________Add a function named `addToCollection`. This function should:
-  - Take in the album's `title`, `artist`, `yearPublished` as input parameters
-  - Create a new object having the above properties
-  - Add the new object to the end of the `collection` array
-  - Return the newly created object
-
-__________Test the `addToCollection` function:
-  - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
-  - Console.log each album as added using the returned value.
-  - After all are added, console.log the `collection` array.
-
-_____________Add a function named `showCollection`. This function should:
-  - Take in an array parameter. (This allows it to be reused to show any collection, like the results from the find or search.)
-  - Console.log the number of items in the array.
-  - Loop over the array and console.log each album's information formatted like: `TITLE by ARTIST, published in YEAR`.
-
-______________Test the `showCollection` function.
-
-- Add a function named `findByArtist`. This function should:
-  - Take in `artist` (a string) parameter
-  - Create an array to hold any results, empty to start
-  - Loop through the `collection` and add any objects with a matching artist to the array.
-  - Return the array with the matching results. If no results are found, return an empty array.
-
-- Test the `findByArtist` function. Make sure to test with an artist you know is in the collection, as well as an artist you know is not in your collection. Check that for artists with multiple matches, all are found.
-
-> When testing your functions, write all tests in the JavaScript file!
-
 
 ### Stretch goals
 
