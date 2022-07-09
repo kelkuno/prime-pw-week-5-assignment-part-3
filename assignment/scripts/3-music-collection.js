@@ -1,24 +1,25 @@
 console.log('***** Music Collection *****')
 let collection = [];
 
-function addToCollection (title, artist, yearPublished) {
+
+function addToCollection (title, artist, yearPublished, track) {
     
     let newAlbum = { };
 
     newAlbum.title = title;
     newAlbum.artist = artist;
     newAlbum.yearPublished = yearPublished;
+    newAlbum.track = track;
    
     collection.push(newAlbum);
     return newAlbum;
 } // end of function
 
 function showCollection(group){
-    console.log(group.length);
+    console.log('number of items: ', group.length);
     for (let i = 0; i < group.length; i++){
         console.log(group[i].title + ' by ' + group[i].artist + ', published in ' + group[i].yearPublished);
     } // end of for loop
-
 } // end of function
 
 function findByArtist(artist, group) {
@@ -33,24 +34,25 @@ function findByArtist(artist, group) {
     return artistResults;
 } //end of function
 
-function searchFeature (artist, yearPublished, group){
+function searchFeature (artist, yearPublished){
     let newCollection = [];
 
-    if (artist === undefined && yearPublished === undefined && group === undefined){
+    if (artist === undefined && yearPublished === undefined){
         console.log('do not forget to add search object input');
         return collection;
     } // end of conditional
 
-    for(let i=0; i < group.length; i++){
-        if(artist === group[i].artist || yearPublished === group[i].yearPublished){
-            newCollection.push(group[i]);
-            console.log ('it is a match');
-            return newCollection;
-        } else if(artist != group[i].artist || year != group[i].yearPublished) {
-            console.log ('it is not a match');
-            return newCollection;
-        } // end of conditional
+    for(let i=0; i < collection.length; i++){
+        if(artist === collection[i].artist && yearPublished === collection[i].yearPublished){
+            newCollection.push(artist, yearPublished);
+           // console.log ('it is a match');
+            newCollection;
+        } else if(artist != collection[i].artist || yearPublished != collection[i].yearPublished) {
+            //console.log ('it is not a match', newCollection);
+            newCollection;
+        } //end of conditional
     } // end of loop
+    return newCollection;
 } // end of function
 
 //added a few albums to collection:
@@ -61,7 +63,7 @@ console.log('adding this to collection:', addToCollection('Hollywood Africans', 
 console.log('adding this to collection:', addToCollection('Stripped', 'Christina Aguilera', 2002));
 console.log('adding this to collection:', addToCollection('Careless Love', 'Madeleine Peyroux', 2004));
 
-//output all albums in collection
+//output all albums in an inputed collection
 showCollection(collection);
 
 //Checks to see if the input artist is in the album collection and returns results
@@ -69,11 +71,11 @@ findByArtist('Guster', collection);
 findByArtist('The Strokes', collection);
 findByArtist('Moby', collection);
 
+//Checks search feature for artist in array, artist not in array and no object input to function. 
 console.log('--search feature tests!--');
-
-//searchFeature ('Ray Charles', 1957, collection);
-searchFeature('Jon Batiste', 2018, collection);
-//searchFeature();
+console.log('this should be empty array:', searchFeature ('Ray Charles', 1957));
+console.log('this shoould show array with artist and year added', searchFeature('Jon Batiste', 2018));
+console.log('this should display collection array', searchFeature());
 /**************
 
 ### Stretch goals
@@ -108,5 +110,4 @@ searchFeature('Jon Batiste', 2018, collection);
 
 ## Assignment Submission
 Check in your repo, then turn in your work via the Prime Academy Assignment Application at http://primeacademy.io, as usual and don't hesitate to hit up the Slack channel as needed!
-
  */
